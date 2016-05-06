@@ -89,6 +89,7 @@ function nl2br (str, is_xhtml) {
   }
 
 // create  graph
+$("#visualization").html("");
 var container = document.getElementById('visualization');
 var items = [
 {x: '2014-06-11', y: sum},
