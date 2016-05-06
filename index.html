@@ -1,0 +1,167 @@
+﻿<!DOCTYPE HTML>
+<!--
+	This project site uses the theme Overflow by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>poetry graphs</title>
+		<script src="libraries/p5.js" type="text/javascript"></script>
+		<script src="libraries/p5.dom.js" type="text/javascript"></script>
+		<script src="libraries/p5.sound.js" type="text/javascript"></script>
+		<script src="libraries/rita-full.js" type="text/javascript"></script>
+		<script src="sketch.js" type="text/javascript"></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>poetry graphs</h1>
+					<p>by nicholas liu</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly-middle">make one</a>
+				</footer>
+			</section>
+
+		<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>Can you see poetry?</h2>
+				</header>
+				<p>"Poetry is prose bewitched, a music made of visual thoughts, the sound of an idea.” </p>
+				<p><i>-Mina Loy</i></p>
+				<br>
+
+				<p>Is there something about poetry, as opposed to prose, that makes its music, its sound, inherently visual?</p>
+				<p>This project aims to quantify and visualize the idea of "momentum" or "pace" in poetry.</p>
+				<footer>
+					<a href="#first" class="button style2 scrolly">what do you mean?</a>
+				</footer>
+			</section>
+
+		<!-- Feature 1 -->
+			<article id="first" class="container box style1 right">
+				<a href="#" class="image fit"><img src="images/fireandice.png" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>Poets pace <br />
+						with line breaks</h2>
+					</header>
+					<p>Try reading this excerpt from Robert Frost's "Fire and Ice" aloud. The white line is a rough sketch of the "pace" of the poem; notice how that's sensitive to how long the lines are.</p>
+				</div>
+			</article>
+
+		<!-- Feature 2 -->
+			<article class="container box style1 left">
+				<a href="#" class="image fit"><img src="images/raisin.png" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>...and also with<br />
+						punctuation</h2>
+					</header>
+					<p>This excerpt from Langston Hughes' "A Dream Deferred" has similiar line lengths, but as you read it out loud, notice how the punctuation changes the shape of the poem.</p>
+				</div>
+			</article>
+
+		<!-- Portfolio -->
+			<article class="container box style2">
+				<header>
+					<h2>Gallery</h2>
+					<p>Check poem visualizations made with <br />
+				this project. Yours could be here soon!</p>
+				</header>
+				<div class="inner gallery">
+					<div class="row 0%">
+						<div class="3u 12u(mobile)"><a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+					</div>
+					<div class="row 0%">
+						<div class="3u 12u(mobile)"><a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/07.jpg" class="image fit"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
+						<div class="3u 12u(mobile)"><a href="images/fulls/08.jpg" class="image fit"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
+					</div>
+				</div>
+			</article>
+
+
+		<!-- Generic -->
+
+			<article class="container box style3">
+				<header>
+					<h2>Try it yourself</h2>
+					<p>Paste in a poem of your choice. Move sliders to change parameters. </p>
+				</header>
+				<hr>
+				<p>
+					<textarea placeholder="paste poem here" rows="20" cols="50" id="sentence"></textarea>
+					<br><button id="analyze">Analyze it!</button>
+				</p>
+				<hr>
+				<section>
+					<header>
+						<h3>(Behind the scenes)</h3>
+					</header>
+					<p>First, your text is split into new lines and each line is put </p>
+				</section>
+
+			</article>
+
+			<!-- Contact -->
+				<article class="container box style3">
+					<header>
+						<h2>Share your poetry!</h2>
+						<p>Want your poetry or your favorite poem in the gallery? Just submit it with the form below! <br>
+						<i>Or, email <a href="mailto:laptoprabbit@gmail.com?Subject=PoetryGraphs" target="_top">laptoprabbit@gmail.com</a><i></p>
+					</header>
+					<form method="post" action="https://formspree.io/laptoprabbit@gmail.com">
+						<div class="row 50%">
+							<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Your Name" /></div>
+							<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Poem Author" /></div>
+							<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Poem Title" /></div>
+							<div class="6u$ 12u$(mobile)"><input type="text" class="text" name="email" placeholder="Email" /></div>
+							<div class="12u$">
+								<textarea name="message" placeholder="Paste a poem here"></textarea>
+							</div>
+							<div class="12u$">
+								<ul class="actions">
+									<li><input type="submit" value="DO IT" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</article>
+
+		<section id="footer">
+			<ul class="icons">
+				<h3>Share Poetry Graphs on Facebook!</h3>
+							<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&mobile_iframe=true&width=96&height=20&appId" width="96" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+				<br>
+											</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; App and images: Nicholas Liu</li><li>Poems by their cited authors.<li>Site design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
