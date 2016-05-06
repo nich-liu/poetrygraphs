@@ -19,6 +19,7 @@
 				<link rel="stylesheet" href="assets/css/vis.css" />
 	</head>
 	<body>
+			<!-- Facebook SDK -->
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -38,7 +39,7 @@
 				</footer>
 			</section>
 
-		<!-- Banner -->
+		<!-- intro-->
 			<section id="banner">
 				<header>
 					<h2>Can you see poetry?</h2>
@@ -54,7 +55,7 @@
 				</footer>
 			</section>
 
-		<!-- Feature 1 -->
+		<!-- demo1 -->
 			<article id="first" class="container box style1 right">
 				<a href="#" class="image fit"><img src="images/fireandice.png" alt="" /></a>
 				<div class="inner">
@@ -66,7 +67,7 @@
 				</div>
 			</article>
 
-		<!-- Feature 2 -->
+		<!-- demo2 -->
 			<article class="container box style1 left">
 				<a href="#" class="image fit"><img src="images/raisin.png" alt="" /></a>
 				<div class="inner">
@@ -80,18 +81,204 @@
 
 
 
-		<!-- Generic -->
-
+		<!-- App-->
 			<article class="container box style3">
 				<header>
 					<h2>Try it yourself</h2>
+					<p>Paste in a poem of your choice, then press the analyze button. </p>
 					<p>Paste in a poem of your choice, then press the analyze button. </p>
 				</header>
 				<hr>
 				<p>
 					<textarea placeholder="paste poem here" rows="20" cols="50" id="sentence"></textarea>
-					<br><button id="analyze">Analyze it!</button>
-					  <div id="visualization"></div>
+					<br><button id="analyze">Create graph</button>
+
+					<!-- table containing app -->
+					<table>
+    <col width="600">
+    <col width="20">
+    <tr>
+        <td style="padding-right: 20px; border-right: 1px solid;">
+            <div id="visualization"></div>
+        <!-- </td>
+        <td style="padding-left: 5px;"> -->
+            <table style="font-size: 12px;">
+                <col width="150">
+                <col width="50">
+                <tr>
+                    <td>Line Color</td>
+                    <td>
+                        <select id="color" onchange="updateStyle()">
+                            <option value="stroke:green;">green</option>
+                            <option value="stroke:red;">red</option>
+                            <option value="stroke:blue;" selected="selected">blue</option>
+                            <option value="stroke:black;">black</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Line Style</td>
+                    <td>
+                        <select id="line" onchange="updateStyle()">
+                            <option value="stroke-dasharray:1 0;" selected="selected">line</option>
+                            <option value="stroke-dasharray:10 10;">dash</option>
+                            <option value="stroke-dasharray:2 2;">dot</option>
+                            <option value="stroke-dasharray:10 5 2 5;">dash-dot</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Line thickness</td>
+                    <td>
+                        <select id="thickness" onchange="updateStyle()">
+                            <option value="stroke-width:0;">0</option>
+                            <option value="stroke-width:1;">1</option>
+                            <option value="stroke-width:2;" selected="selected">2</option>
+                            <option value="stroke-width:3;">3</option>
+                            <option value="stroke-width:4;">4</option>
+                            <option value="stroke-width:5;">5</option>
+                            <option value="stroke-width:6;">6</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fill Position</td>
+                    <td>
+                        <select id="fill" onchange="updateStyle()">
+                            <option value="">none</option>
+                            <option value="top">top</option>
+                            <option value="bottom">bottom</option>
+                            <option value="zero" selected="selected">zero</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fill Color</td>
+                    <td>
+                        <select id="fillcolor" onchange="updateStyle()">
+                            <option value="fill:green;">green</option>
+                            <option value="fill:red;">red</option>
+                            <option value="fill:blue;" selected="selected">blue</option>
+                            <option value="fill:black;">black</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fill Opacity</td>
+                    <td>
+                        <select id="fillopacity" onchange="updateStyle()">
+                            <option value="fill-opacity:0.1;">0.1</option>
+                            <option value="fill-opacity:0.2;">0.2</option>
+                            <option value="fill-opacity:0.3;">0.3</option>
+                            <option value="fill-opacity:0.4;">0.4</option>
+                            <option value="fill-opacity:0.5;">0.5</option>
+                            <option value="fill-opacity:0.6;" selected="selected">0.6</option>
+                            <option value="fill-opacity:0.7;">0.7</option>
+                            <option value="fill-opacity:0.8;">0.8</option>
+                            <option value="fill-opacity:0.9;">0.9</option>
+                            <option value="fill-opacity:1;">1</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Points Shape</td>
+                    <td>
+                        <select id="points" onchange="updateStyle()">
+                            <option value="">none</option>
+                            <option value="circle">circle</option>
+                            <option value="square" selected="selected">square</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Points Size</td>
+                    <td>
+                        <select id="pointsize" onchange="updateStyle()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6" selected="selected">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Points Color</td>
+                    <td>
+                        <select id="pointcolor" onchange="updateStyle()">
+                            <option value="stroke:green;">green</option>
+                            <option value="stroke:red;">red</option>
+                            <option value="stroke:blue;" selected="selected">blue</option>
+                            <option value="stroke:black;">black</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Point Line Thickness</td>
+                    <td>
+                        <select id="pointthickness" onchange="updateStyle()">
+                            <option value="stroke-width:0;">0</option>
+                            <option value="stroke-width:1;">1</option>
+                            <option value="stroke-width:2;" selected="selected">2</option>
+                            <option value="stroke-width:3;">3</option>
+                            <option value="stroke-width:4;">4</option>
+                            <option value="stroke-width:5;">5</option>
+                            <option value="stroke-width:6;">6</option>
+                        </select>
+                    </td>
+                <tr>
+                </tr>
+                  <td>Points Fill Color</td>
+                    <td>
+                        <select id="pointfill" onchange="updateStyle()">
+                            <option value="fill:green;">green</option>
+                            <option value="fill:red;">red</option>
+                            <option value="fill:blue;" selected="selected">blue</option>
+                            <option value="fill:black;">black</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+				</table>
+
+<button id="update">Update graph</button>
+<script type="text/javascript">
+    updateStyle();
+    function updateStyle() {
+        groupData.style = "";
+        groupData.style += document.getElementById("color").value;
+        groupData.style += document.getElementById("line").value;
+        groupData.style += document.getElementById("thickness").value;
+        groupData.options.drawPoints = {};
+        groupData.options.drawPoints.styles = "";
+        groupData.options.drawPoints.style = document.getElementById("points").value;
+        groupData.options.drawPoints.styles += document.getElementById("pointcolor").value;
+        groupData.options.drawPoints.styles += document.getElementById("pointthickness").value;
+        groupData.options.drawPoints.styles += document.getElementById("pointfill").value;
+        groupData.options.drawPoints.size = Number(document.getElementById("pointsize").value);
+        if (groupData.options.drawPoints.style == "") {
+            groupData.options.drawPoints = false;
+        }
+        groupData.options.shaded = {};
+        groupData.options.shaded.style = "";
+        groupData.options.shaded.style += document.getElementById("fillcolor").value;
+        groupData.options.shaded.style += document.getElementById("fillopacity").value;
+        groupData.options.shaded.orientation = document.getElementById("fill").value;
+        if (groupData.options.shaded.orientation == "") {
+            groupData.options.shaded = false;
+        }
+        var groups = new vis.DataSet();
+        groups.add(groupData);
+        graph2d.setGroups(groups);
+    }
+</script>
 				</p><p id="anal">Hello World!</p>
 
 
@@ -111,7 +298,7 @@
 				<article class="container box style2">
 					<header>
 						<h2>Gallery</h2>
-						<p>Check poem visualizations made with <br />
+						<p>Check out poem visualizations made with <br />
 					this project. Yours could be here soon!</p>
 					</header>
 					<div class="inner gallery">
@@ -155,7 +342,7 @@
 					</form>
 				</article>
 
-				<!-- Contact -->
+				<!-- Comments -->
 					<article class="container box style3">
 						<header>
 							<h2>Project Feedback</h2>
