@@ -37,7 +37,8 @@ function splitLines(){
       texts.push($.trim(lines[i]));
     }
   }
-    alert("first word="+lines[0]);
+    alert("Testing split function. First line="+lines[0]);
+    return lines;
 }
 function countline(line){
   // Make a rita string object for input
@@ -59,35 +60,33 @@ function countline(line){
     syllableCount[i] = syllables.length;
   }
   var sum = syllableCount.reduce((a, b) => a + b, 0);
-  console.log(sum);
-  alert("Graph generated, syllables="+sum);
-
 
   return sum;
 }
 
 function analyze() {
-  splitLines();
+  lines=splitLines();
   var sum=0;
-  sum=countline("poop");
-    alert("New sum:"+sum);
+  var counts = [];
+  for (var i = 0; i < lines.length; i++) {
+    counts.push(countline(lines[i]));
+      alert("New sum:"+counts[i]);
+  }
 
-  //announce sum on click
-// var sum = syllableCount.reduce((a, b) => a + b, 0);
-// console.log(sum);
-// alert("Graph generated, syllables="+sum);
+var average = counts.reduce((a, b) => a + b, 0)/lines.length;
+alert("tempo=average syllables in line="+average);
 
 
 // create  graph
 $("#visualization").html("");
 var container = document.getElementById('visualization');
   var items = [
-      {x: '2014-06-11', y: sum, group: 0},
-      {x: '2014-06-12', y: 25, group: 0},
-      {x: '2014-06-13', y: 30, group: 0},
-      {x: '2014-06-14', y: -10, group: 0},
-      {x: '2014-06-15', y: 15, group: 0},
-      {x: '2014-06-16', y: 30, group: 0}
+      {x: '2014-06-11', y: 0, group: 0},
+      {x: '2014-06-12', y: counts[0]-average, group: 0},
+      {x: '2014-06-13', y: counts[1]-average, group: 0},
+      {x: '2014-06-14', y: counts[2]-average, group: 0},
+      {x: '2014-06-15', y: counts[3]-average, group: 0},
+      {x: '2014-06-16', y: counts[4]-average, group: 0}
   ];
   var dataset = new vis.DataSet(items);
   var options = {
