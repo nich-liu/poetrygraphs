@@ -29,11 +29,7 @@ function setup() {
 }
 
 function analyze() {
-  var p = createP('');
-  p.class('text');
 
-  var ol = createElement('ol');
-  ol.parent(p);
 
   // What has the user entered?
   // Make a rita string object
@@ -46,12 +42,6 @@ function analyze() {
   var li2 = createElement('li', 'Phonemes: ' + features.phonemes);
   var li3 = createElement('li', 'Parts of speech: ' + features.pos);
   var li4 = createElement('li', 'Syllables: ' + features.syllables);
-
-  // Put the in the list
-  li1.parent(ol);
-  li2.parent(ol);
-  li3.parent(ol);
-  li4.parent(ol);
 
   // How many syllables is each word?
 
@@ -68,19 +58,11 @@ function analyze() {
     syllableCount[i] = syllables.length;
   }
 
-  // Show this in the list
-  var li5 = createElement('li', 'Syllable count: ' + syllableCount.join(' ')+ sentenceInput.value());
-  li5.parent(ol);
-
   //announce sum on click
 var sum = syllableCount.reduce((a, b) => a + b, 0);
 console.log(sum);
 alert("Graph generated, syllables="+sum);
 
-function nl2br (str, is_xhtml) {
-     var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
-     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
-  }
 
 // create  graph
 $("#visualization").html("");
