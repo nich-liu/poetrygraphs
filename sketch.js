@@ -3,7 +3,7 @@
 // https://github.com/shiffman/A2Z-F15
 
 var sentenceInput, wordInput;
-// var stringArray = document.getElementById('textarea').value.split('\n');
+// var stringArray = document.getElementById('sentence').value.split('\n');
 var x = "Johnathan"+" Doe ";
 var lex;
 
@@ -40,7 +40,7 @@ function analyze() {
 
   // What has the user entered?
   // Make a rita string object
-  var rs = new RiString(x);
+  var rs = new RiString(sentenceInput.value());
   // Analyze that string for lots of features
   var features = rs.features();
 
@@ -72,27 +72,18 @@ function analyze() {
   }
 
   // Show this in the list
-  var li5 = createElement('li', 'Syllable count: ' + syllableCount.join(' '));
+  var li5 = createElement('li', 'Syllable count: ' + syllableCount.join(' ')+ sentenceInput.value());
   li5.parent(ol);
+  var mystr=sentenceInput.value();
+mystr=nl2br(mystr);
+alert(mystr);
 }
-
-function rhyme() {
-
-  var p = createP('');
-  p.class('text');
-
-  var ol = createElement('ol');
-  ol.parent(p);
-
-  // Get rhymes from the lexicon
-  var rhymes = lex.rhymes(wordInput.value());
-
-  // Show them in a list
-  for (var i = 0; i < rhymes.length; i++) {
-    var li = createElement('li', rhymes[i]);
-    li.parent(ol);
+function nl2br (str, is_xhtml) {
+     var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
   }
-}
+
+
 
 // Go through and remove all the divs
 function clearAll() {
@@ -100,4 +91,5 @@ function clearAll() {
   for (var i = 0; i < par.length; i++) {
     par[i].remove();
   }
+
 }
