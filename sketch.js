@@ -28,21 +28,22 @@ function setup() {
 
 }
 
-function analyze() {
-
-
-  // What has the user entered?
-  // Make a rita string object
-  var rs = new RiString(sentenceInput.value());
+function splitLines(){
+  var lines = $('#sentence').val().split(/\n/);
+  var texts = [];
+  for (var i=0; i < lines.length; i++) {
+    // only push this line if it contains a non whitespace character.
+    if (/\S/.test(lines[i])) {
+      texts.push($.trim(lines[i]));
+    }
+  }
+    alert("first word="+lines[0]);
+}
+function countline(line){
+  // Make a rita string object for input
+  var rs = new RiString(line);
   // Analyze that string for lots of features
   var features = rs.features();
-
-  // Here are some features you can get (there are more!)
-  var li1 = createElement('li', 'Stresses: ' + features.stresses);
-  var li2 = createElement('li', 'Phonemes: ' + features.phonemes);
-  var li3 = createElement('li', 'Parts of speech: ' + features.pos);
-  var li4 = createElement('li', 'Syllables: ' + features.syllables);
-
   // How many syllables is each word?
 
   // First split up each word by anything not a dash, slash or letter/number
@@ -57,11 +58,24 @@ function analyze() {
     var syllables = tokens[i].split(/\//);
     syllableCount[i] = syllables.length;
   }
+  var sum = syllableCount.reduce((a, b) => a + b, 0);
+  console.log(sum);
+  alert("Graph generated, syllables="+sum);
+
+
+  return sum;
+}
+
+function analyze() {
+  splitLines();
+  var sum=0;
+  sum=countline("poop");
+    alert("New sum:"+sum);
 
   //announce sum on click
-var sum = syllableCount.reduce((a, b) => a + b, 0);
-console.log(sum);
-alert("Graph generated, syllables="+sum);
+// var sum = syllableCount.reduce((a, b) => a + b, 0);
+// console.log(sum);
+// alert("Graph generated, syllables="+sum);
 
 
 // create  graph
@@ -127,13 +141,4 @@ var container = document.getElementById('visualization');
       groups.add(groupData);
       graph2d.setGroups(groups);
   }
-}
-onclick=updateStyle();
-// Go through and remove all the divs
-function clearAll() {
-  var par = selectAll('.text');
-  for (var i = 0; i < par.length; i++) {
-    par[i].remove();
-  }
-
 }
