@@ -9,6 +9,7 @@ var lex;
 
 var results;
 
+
 function setup() {
   noCanvas();
   lex = new RiLexicon();
@@ -74,16 +75,37 @@ function analyze() {
   // Show this in the list
   var li5 = createElement('li', 'Syllable count: ' + syllableCount.join(' ')+ sentenceInput.value());
   li5.parent(ol);
+
+  //test for line breaks
   var mystr=sentenceInput.value();
 mystr=nl2br(mystr);
-alert(mystr);
-}
+var sum = syllableCount.reduce((a, b) => a + b, 0);
+console.log(sum);
+alert(sum);
+
 function nl2br (str, is_xhtml) {
      var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
      return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
   }
 
+// create  graph
+var container = document.getElementById('visualization');
+var items = [
+{x: '2014-06-11', y: sum},
+{x: '2014-06-12', y: 25},
+{x: '2014-06-13', y: 30},
+{x: '2014-06-14', y: 10},
+{x: '2014-06-15', y: 15},
+{x: '2014-06-16', y: 30}
+];
 
+var dataset = new vis.DataSet(items);
+var options = {
+start: '2014-06-10',
+end: '2014-06-18'
+};
+var graph2d = new vis.Graph2d(container, dataset, options);
+}
 
 // Go through and remove all the divs
 function clearAll() {
