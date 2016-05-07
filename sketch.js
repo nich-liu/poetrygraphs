@@ -36,8 +36,14 @@ function splitLines(){
     if (/\S/.test(lines[i])) {
       texts.push($.trim(lines[i]));
     }
+    else {
+      texts.push(" ");
+            texts.push(" ");
+                  texts.push(" ");
+    }
   }
     alert("Testing split function. First line="+lines[0]);
+    lines=texts;
     return lines;
 }
 function countline(line){
