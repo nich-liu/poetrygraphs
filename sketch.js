@@ -31,15 +31,21 @@ function setup() {
 function splitLines(){
   var lines = $('#sentence').val().split(/\n/);
   var texts = [];
+    var stanza=0;
   for (var i=0; i < lines.length; i++) {
     // only push this line if it contains a non whitespace character.
     if (/\S/.test(lines[i])) {
       texts.push($.trim(lines[i]));
+    stanza+=1;
     }
     else {
+      stanza=Math.log(stanza)*2;
+      stanza=Math.floor(stanza);
+      alert("adjusting this stanza break length to:"+stanza);
+      for (var q=0; q < stanza; q++){
       texts.push(" ");
-            texts.push(" ");
-                  texts.push(" ");
+    }
+      stanza=0;
     }
   }
     alert("Testing split function. First line="+lines[0]);
