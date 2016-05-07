@@ -79,8 +79,12 @@ alert("tempo=average syllables in line="+average);
   //manipulate counts to vis.js readable array, items
   var test = [{x: 1, y: 0, group: 0}];
  for (var j = 1; j < lines.length; j++) {
-  test.push({x: j+1, y: counts[j-1]-average*0.8-(counts[j-1]-counts[j]), group: 0});
-    if (j==lines.length-1) {
+   var suby=counts[j-1]-average*0.8-(counts[j-1]-counts[j]);
+   if (suby<0){
+     suby-=(suby/2);
+   }
+  test.push({x: j+1, y: suby, group: 0});
+    if (j==lines.length-1&&counts[lines.length-1]!==0) {
       test.push({x: j+2, y: 0, group: 0});
     }
   }
