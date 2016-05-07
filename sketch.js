@@ -93,7 +93,7 @@ var items = [];
   var dataset = new vis.DataSet(items);
   var options = {
       start: 0,
-      end: (lines.length*1.02),
+      end: (lines.length*1.05+1),
       dataAxis: {
           showMinorLabels: false,
           visible: false,
