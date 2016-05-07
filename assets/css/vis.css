@@ -630,7 +630,7 @@ input.vis-configuration.vis-config-range:focus::-ms-fill-upper {
   padding: 3px;
   overflow: hidden;
   box-sizing: border-box;
-
+visibility: hidden;
   white-space: nowrap;
 }
 
