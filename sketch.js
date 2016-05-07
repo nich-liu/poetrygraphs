@@ -70,31 +70,35 @@ function analyze() {
   var counts = [];
   for (var i = 0; i < lines.length; i++) {
     counts.push(countline(lines[i]));
-      alert("New sum:"+counts[i]);
   }
 
+  //find "tempo" of poem
 var average = counts.reduce((a, b) => a + b, 0)/lines.length;
 alert("tempo=average syllables in line="+average);
+
+  //manipulate counts to vis.js readable array, items
+  var test = [{x: 1, y: 0, group: 0}];
+ for (var j = 1; j < lines.length; j++) {
+  test.push({x: j+1, y: counts[j-1]-average*0.8-(counts[j-1]-counts[j]), group: 0});
+  }
+
+
 
 
 // create  graph
 $("#visualization").html("");
 var container = document.getElementById('visualization');
-  var items = [
-      {x: '2014-06-11', y: 0, group: 0},
-      {x: '2014-06-12', y: counts[0]-average, group: 0},
-      {x: '2014-06-13', y: counts[1]-average, group: 0},
-      {x: '2014-06-14', y: counts[2]-average, group: 0},
-      {x: '2014-06-15', y: counts[3]-average, group: 0},
-      {x: '2014-06-16', y: counts[4]-average, group: 0}
-  ];
+var items = [];
+  items = test;
   var dataset = new vis.DataSet(items);
   var options = {
-      start: '2014-06-10',
-      end: '2014-06-18',
+      start: 0,
+      end: (lines.length*1.02),
       dataAxis: {
           showMinorLabels: false,
-          icons: true
+          visible: false,
+          showMajorLabels: false,
+          icons: false
       }
   };
   var groupData = {
