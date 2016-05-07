@@ -80,6 +80,9 @@ alert("tempo=average syllables in line="+average);
   var test = [{x: 1, y: 0, group: 0}];
  for (var j = 1; j < lines.length; j++) {
   test.push({x: j+1, y: counts[j-1]-average*0.8-(counts[j-1]-counts[j]), group: 0});
+    if (j==lines.length-1) {
+      test.push({x: j+2, y: 0, group: 0});
+    }
   }
 
 
