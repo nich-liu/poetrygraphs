@@ -114,7 +114,6 @@ var items = [];
       start: 0,
       end: (lines.length*1.05+1),
       dataAxis: {
-        showCurrentTime:false,
           showMinorLabels: false,
           visible: false,
           showMajorLabels: false,
