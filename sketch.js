@@ -135,7 +135,6 @@ var items = [];
   var groups = new vis.DataSet();
   groups.add(groupData);
   var graph2d = new vis.Graph2d(container, dataset, groups, options);
-  fit();
   updateStyle();
   function updateStyle() {
       groupData.style = "";
